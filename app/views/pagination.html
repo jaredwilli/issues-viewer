@@ -1,0 +1,26 @@
+<div class="pagination">
+  <span class="pagination-text">
+    <span ng-show="paging.totalCount > 0">
+      {{ paging.startIndex }} - {{ paging.endIndex }} of {{ paging.totalCount }} Issues
+    </span>
+    <span ng-show="paging.totalCount == 0">
+      {{ paging.totalCount }} Issues
+    </span>
+  </span>
+
+  <div class="page-nav" ng-show="paging.totalCount > 30">
+    <ul class="pagination">
+      <li>
+        <a href ng-click="paging.firstPage != paging.currentPage && prevPage()" ng-disabled="paging.firstPage == paging.currentPage" class="btn prev">«</a>
+      </li>
+
+      <li ng-repeat="page in range(paging.totalPages)" class="page">
+        <a href ng-click="movePage(page)" ng-disabled="page == paging.currentPage" class="btn">{{ page }}</a>
+      </li>
+
+      <li>
+          <a href ng-click="paging.lastPage != paging.currentPage && nextPage()" ng-disabled="paging.lastPage == paging.currentPage" class="btn next">»</a>
+      </li>
+    </ul>
+  </div>
+</div>

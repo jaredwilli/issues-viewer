@@ -1,0 +1,124 @@
+
+header {
+  background: #eee;
+  border-radius: 4px 4px 0 0;
+  border: 1px solid #ccc;
+  padding: 12px;
+}
+
+section {
+  width: 100%;
+  padding: 0 0 10px 0;
+}
+
+.issues-list {
+  // background: #eee;
+  list-style: none;
+  margin: 0;
+  padding: 0.5em 1em;
+}
+
+.issues-list label {
+  float: left;
+  margin-right: 20px;
+
+}
+
+.issues {
+  border: 1px solid #ccc;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.issue-title {
+  display: inline-block;
+  width: 84%;
+  float: left;
+}
+
+.issue-title .labels a {
+  margin-right: 5px;
+}
+
+.issue-assignee,
+.issue-comments {
+  display: inline-block;
+}
+
+.issue-comments {
+  position: absolute;
+  right: 5px;
+}
+
+.issues-list > div {
+  display: inline-block;
+}
+
+.issue {
+  display: inline-block;
+  width: 100%;
+  padding-left: 70px;
+  position: relative;
+}
+
+.issue img {
+  position: absolute;
+  left: 0;
+}
+
+.issue-body,
+.comment-body {
+  border: 1px solid #E3E3E3;
+  line-height: 2em;
+  padding: 12px;
+}
+
+
+body {
+  padding: 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  margin-bottom: 10px;
+}
+
+/* Custom page footer */
+.footer {
+  border-top: 1px solid #e5e5e5;
+  color: #777;
+  padding-top: 19px;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+}

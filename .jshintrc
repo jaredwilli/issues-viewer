@@ -1,0 +1,9 @@
+{
+  "undef": true,
+  "unused": true,
+  "node": true,
+  "browser": true,
+  "devel": true,
+  "eqnull": true,
+  "predef": [ "angular", "moment" ]
+}

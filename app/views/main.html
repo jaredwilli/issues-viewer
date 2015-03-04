@@ -1,0 +1,55 @@
+<pagination paging="paging"></pagination>
+
+<ul class="issues-list">
+
+  <li ng-repeat="issue in issues" id="issue_{{ issue.number }}" class="issues">
+
+    <label class="issue-checkbox">
+      <input type="checkbox" class="" name="issues[]" value="{{ issue.number }}">
+    </label>
+
+    <div class="issue-title">
+      <a href="#/issue/{{ issue.number }}" class="title">
+        {{ issue.title }}
+      </a>
+
+      <span class="labels">
+        <a ng-repeat="label in issue.labels"
+          href="#/{{ label.url }}"
+          style="background-color: #{{ label.color }}; color: #282c33;"
+          class="label">
+          {{ label.name }}
+        </a>
+      </span>
+
+      <div class="issue-meta">
+        <span class="issue-meta opened-by">
+          #{{ issue.number }} opened <time datetime="{{ issue.created_at }}">
+          {{ issue.created_at | date }}
+        </time> by
+          <a href="{{ issue.user.url }}" class="">
+            {{ issue.user.login }}
+          </a>
+        </span>
+
+      </div>
+    </div>
+
+    <div class="issue-assignee" ng-if="issue.assignee != null">
+      <a href="{{ issue.assignee.url }}" class="assignee">
+        <img alt="{{ issue.assignee.login }}"
+          src="{{ issue.assignee.avatar_url }}"
+          data-user="{{ issue.assignee.id }}"
+          width="16" height="16">
+      </a>
+    </div>
+
+    <div class="issue-comments">
+      <a href="{{ issue.comments_url }}" class="comments">
+        <span class="octicon octicon-comment"></span>
+        {{ issue.comments }}
+      </a>
+    </div>
+  </li>
+
+</ul>
