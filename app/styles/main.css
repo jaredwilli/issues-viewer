@@ -24,12 +24,32 @@ section {
 
 }
 
+pagination {
+  float: right;
+  margin-right: 15px;
+}
+
+.pagination {
+  margin: 0;
+}
+
+.pagination-text {
+  display: inline-block;
+  float: left;
+  margin: 10px 10px;
+}
+
+.pagination-nav {
+  display: inline-block;
+}
+
 .issues {
+  background: #eee;
   border: 1px solid #ccc;
   display: inline-block;
   width: 100%;
   position: relative;
-  padding: 5px;
+  padding: 10px;
   margin-bottom: 5px;
 }
 

@@ -13,7 +13,7 @@ angular.module('issuesViewer')
   'issues',
   'comments',
   function($scope, issues, comments) {
-    $scope.issue = issues;
-    $scope.comments = comments;
+    $scope.issue = issues.data;
+    $scope.comments = comments.data;
 
 }]);

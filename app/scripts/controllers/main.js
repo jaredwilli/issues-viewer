@@ -15,10 +15,11 @@ angular.module('issuesViewer')
   'issues',
   'totalResults',
   function($scope, $location, issuesService, issues, totalResults) {
-    $scope.issues = issues;
+    $scope.issues = issues.data;
 console.log(totalResults);
+
     $scope.issues.forEach(function(i) {
-      var trimTitle = i.title.substr(0, 40);
+      var trimTitle = i.title.substr(0, 140);
       i.title = trimTitle.substr(0, Math.min(trimTitle.length, trimTitle.lastIndexOf(' '))) + '...';
 
       return i;
@@ -29,7 +30,7 @@ console.log(totalResults);
     $scope.paging.startIndex = 1;
     $scope.paging.endIndex = 30;
     $scope.paging.perPage = 30;
-    $scope.paging.totalCount = 1;//totalResults.data.length;
+    $scope.paging.totalCount = totalResults.data.length;
     $scope.paging.totalPages = Math.ceil($scope.paging.totalCount / $scope.paging.perPage);
     $scope.paging.firstPage = 1;
     $scope.paging.lastPage = $scope.paging.totalPages;
