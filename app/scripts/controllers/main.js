@@ -14,16 +14,12 @@ angular.module('issuesViewer')
   'issuesService',
   'issues',
   'totalResults',
-  function($scope, $location, issuesService, issues, totalResults) {
+  'trimIssues',
+  function($scope, $location, issuesService, issues, totalResults, trimIssues) {
+    $scope.repo = 'rails/rails';
+
     $scope.issues = issues.data;
-console.log(totalResults);
-
-    $scope.issues.forEach(function(i) {
-      var trimTitle = i.title.substr(0, 140);
-      i.title = trimTitle.substr(0, Math.min(trimTitle.length, trimTitle.lastIndexOf(' '))) + '...';
-
-      return i;
-    });
+    trimIssues.trim($scope.issues);
 
 
     $scope.paging = {};
@@ -39,6 +35,17 @@ console.log(totalResults);
     $scope.paging.nextPage = $scope.paging.currentPage + 1;
 
 
+    $scope.getRepo = function() {
+      issuesService.list(1, 30, $scope.repo).success(function(resp) {
+        $scope.issues = resp;
+        trimIssues.trim($scope.issues);
+      });
+
+      issuesService.getAll($scope.reop).success(function(resp) {
+        $scope.totalCount = resp.length
+      });
+    };
+
     $scope.movePage = function(page) {
       $scope.paging.currentPage = page;
       $scope.paging.startIndex = ((page - 1) * $scope.paging.perPage) + 1;
@@ -47,6 +54,7 @@ console.log(totalResults);
       // Update issues list
       issuesService.list(page).success(function(resp) {
         $scope.issues = resp;
+        trimIssues.trim($scope.issues);
       });
 
     };
@@ -68,4 +76,16 @@ console.log(totalResults);
     };
 
 
-}]);
+}])
+
+.service('trimIssues', function() {
+  this.trim = function(issues) {
+    // Trim issue titles
+    return issues.forEach(function(i) {
+      var trimTitle = i.title.substr(0, 140);
+      i.title = trimTitle.substr(0, Math.min(trimTitle.length, trimTitle.lastIndexOf(' '))) + '...';
+      return i;
+    });
+  };
+});
+

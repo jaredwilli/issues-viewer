@@ -1,3 +1,6 @@
+Github repo: <input type="text" ng-model="repo">
+<button type="button" class="btn" ng-click="getRepo()">Go</button>
+
 <pagination paging="paging"></pagination>
 
 <ul class="issues-list">
@@ -44,7 +47,7 @@
     </div>
 
     <div class="issue-comments">
-      <a href="{{ issue.comments_url }}" class="comments">
+      <a href="{{ issue.html_url }}" class="comments">
         <span class="octicon octicon-comment"></span>
         {{ issue.comments }}
       </a>

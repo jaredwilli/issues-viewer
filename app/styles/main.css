@@ -33,10 +33,25 @@ pagination {
   margin: 0;
 }
 
+.pagination li {
+  display: inline-block;
+}
+.pagination li a {
+  border-radius: 0;
+}
+
+.pagination li:first-child {
+  margin-right: 5px;
+}
+
+.pagination li:last-child {
+  margin-left: 5px;
+}
+
 .pagination-text {
   display: inline-block;
   float: left;
-  margin: 10px 10px;
+  margin: 8px 10px;
 }
 
 .pagination-nav {
@@ -46,6 +61,7 @@ pagination {
 .issues {
   background: #eee;
   border: 1px solid #ccc;
+  border-radius: 3px;
   display: inline-block;
   width: 100%;
   position: relative;
@@ -95,6 +111,12 @@ pagination {
   line-height: 2em;
   padding: 12px;
 }
+
+.octicon-comment-add:before,
+.octicon-comment:before {
+  content: '\f02b';
+}
+
 
 
 body {
