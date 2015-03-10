@@ -42,7 +42,7 @@ angular.module('issuesViewer')
       });
 
       issuesService.getAll($scope.reop).success(function(resp) {
-        $scope.totalCount = resp.length;
+        $scope.totalCount = resp.length
       });
     };
 
