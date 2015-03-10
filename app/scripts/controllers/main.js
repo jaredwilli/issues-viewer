@@ -42,7 +42,7 @@ angular.module('issuesViewer')
       });
 
       issuesService.getAll($scope.reop).success(function(resp) {
-        $scope.totalCount = resp.length
+        $scope.totalCount = resp.length;
       });
     };
 
@@ -83,6 +83,7 @@ angular.module('issuesViewer')
     // Trim issue titles
     return issues.forEach(function(i) {
       var trimTitle = i.title.substr(0, 140);
+
       i.title = trimTitle.substr(0, Math.min(trimTitle.length, trimTitle.lastIndexOf(' '))) + '...';
       return i;
     });
