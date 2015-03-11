@@ -27,27 +27,6 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
-  buildcontrol: {
-    options: {
-      dir: 'dist',
-      commit: true,
-      push: true,
-      message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-    },
-    pages: {
-      options: {
-        remote: 'git@github.com:jaredwilli/issues-viewer.git',
-        branch: 'gh-pages'
-      }
-    },
-    local: {
-      options: {
-        remote: '../',
-        branch: 'build'
-      }
-    }
-  },
-
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -454,8 +433,7 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin',
-    'buildcontrol'
+    'htmlmin'
   ]);
 
   grunt.registerTask('default', [
